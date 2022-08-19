@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  <style>
+     @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-family: 'Poppins';
+}
+    body{
+        background-color: #eaedf1;
+    }
+#container{
+    width: 100%; 
+    height: auto; 
+    background-color:#eaedf1;
+}
+#downbox{
+    border-radius: 20px;
+    margin-top: 40px; 
+    width:280px; 
+    height:170px; 
+    background-color: #eaedf1;
+    box-shadow: inset 2px 3px 5px #ffffff,
+                       2px 3px 5px #8995a7;
+}
+.appname{
+    background-color: #eaedf1;
+    border: none;
+    width: 130px;
+    text-align:left;
+    margin-left: 6px;
+    margin-top: 10px;
+    font-size: 21px;
+}
+.appbio{
+    background-color: #eaedf1;
+    border: none;
+    color: #04704e;
+    width: 130px;
+    text-align: left;
+    font-size: 12px;
+    margin-top: -4px;
+    margin-left: 13px;
+
+}
+.appicon{
+    margin-left: 27px;
+    width: 75px;
+    height: 75px;
+}
+.dwnbtn{
+    width: 230px;
+    height: 25px;
+    background-color: #04704e;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    margin-top: 10px;
+    font-size: 15px;
+}
+a{
+    text-decoration: none;
+    padding-right:75px;
+    padding-left:75px;
+    height: 25px;
+    background-color: #04704e;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    margin-top: 10px;
+    font-size: 15px;
+    
+}
+.hide{
+    display: none;
+}
+</style>
+    <script>
+    function AddRow()
+    {
+      document.getElementById("add_button").disabled = true;
+      var app = document.getElementById("app").value;
+      var name = document.getElementById("name").value;
+      var img = document.getElementById("img").value;
+      var bio = document.getElementById("bio").value;
+      var link = document.getElementById("link").value;
+     
+      if(app != '' && name != '' && img != '' && bio != '' && link != '' )
+      {
+        google.script.run.withSuccessHandler(function(return_string) 
+        {
+          SearchRecords();
+          document.getElementById("add_button").disabled = false;
+        }).AddRecord(app, name, img, bio, link);       
+      }
+      else
+      {
+        document.getElementById("display_error").innerHTML = "Please Enter All Information!";
+        document.getElementById("add_button").disabled = false;
+      }
+    }
+
+    function ClearRecord()
+    {
+        document.getElementById("app").value = '';
+        document.getElementById("name").value = '';
+        document.getElementById("img").value = '';
+        document.getElementById("bio").value = '';
+        document.getElementById("link").value = '';
+      
+        document.getElementById("display_error").innerHTML = "";
+    }
+
+    function UpdateRecord(row_number)
+    {
+      document.getElementById("update_button"+row_number).disabled = true;
+      var record_id = document.getElementById("up_record_id"+row_number).value;
+      var app = document.getElementById("up_app"+row_number).value;
+      var name = document.getElementById("up_name"+row_number).value;
+      var img = document.getElementById("up_img"+row_number).value;
+      var bio = document.getElementById("up_bio"+row_number).value;
+      var link = document.getElementById("up_link"+row_number).value;
+    
+
+      google.script.run.withSuccessHandler(function(return_string) 
+      {
+          document.getElementById("update_button"+row_number).disabled = false;
+      }).UpdateRecord(record_id, app, name, img, bio, link);
+    }
+
+    function DeleteRecord(row_number)
+    {
+
+      var record_id = document.getElementById("up_record_id"+row_number).value;
+
+      google.script.run.withSuccessHandler(function(return_string) 
+      {
+        if(return_string == 'SUCCESS')
+        {
+          document.getElementById('mainTable').deleteRow(document.getElementById('ROWNUMBER:'+row_number).rowIndex); 
+        }
+      }).DeleteRecord(record_id);
+    }
+
+    function SearchRecords() 
+    {
+      var app = document.getElementById("app").value;
+      var name = document.getElementById("name").value;
+      var img = document.getElementById("img").value;
+      var bio = document.getElementById("bio").value;
+      var link = document.getElementById("link").value;
+      var row_number = 0;
+
+      google.script.run.withSuccessHandler(function(ar) 
+      {
+
+        console.log(ar);
+        var displayTable = '<form>';
+        displayTable += '<table class=\"table\" id=\"mainTable\" >';
+       
+
+        ar.forEach(function(item, index) 
+        {
+          
+          displayTable +="<div id=\"container\" ><center><div id=\"downbox\" >";
+        displayTable +="<input class=\"hide\"  type=\"hidden\" id=\"up_record_id"+ row_number +"\" value=\""+item[0]+"\" />";
+
+        displayTable +="<input class=\"hide\"  type=\"text\" id=\"up_app"+ row_number +"\" value=\""+item[1]+"\"  /> ";
+
+        displayTable +="<br><div style=\"display:flex;\"><img class=\"appicon\" id=\"up_img"+ row_number +"\"  src=\""+item[3]+"\" />";
+
+        displayTable +="<div><input type=\"button\" id=\"up_name"+ row_number +"\" value=\""+item[2]+"\" class=\"appname\" /><br>";
+
+        displayTable +="<h6 id=\"up_bio"+ row_number +"\"   class=\"appbio\">"+item[4]+"</h6>";
+
+        displayTable +="</div></div><div class=\"dwnbtn\"><a id=\"up_link"+ row_number +"\"  href=\""+item[5]+"\">Download</a> </div></div></center></div>";
+         
+
+          row_number++;    
+        });
+
+        displayTable += '</table></form>';     
+        document.getElementById("rowdata").innerHTML = displayTable;
+
+      }).searchRecords(app, name, img, bio, link);
+      
+    }
+    </script>
+  </head>
+  <body>
+  <div class="hide" style="padding: 10px;" >
+  <form>
+  
+  <label for="app">App</label>
+  <input type="text" id="app" class="form-control" />
+ 
+  
+  <label for="name">Name</label>
+  <input type="text" id="name" class="form-control" />
+
+  
+  <label for="img">Img</label>
+  <input type="text" id="img" class="form-control" />
+
+  
+  <label for="bio">Bio</label>
+  <input type="text" id="bio" class="form-control" />
+ 
+  
+  <label for="link">link</label>
+  <input type="text" id="link" class="form-control" />
+
+ 
+
+  <input type="button" id='btns' value="Search" class="btn btn-primary" onclick="SearchRecords()" />
+  <input type="button" value="Add Record" class="btn btn-primary" onclick="AddRow()" id="add_button" />
+
+  
+  </div>
+
+  </form> 
+  <div style="margin-top:80px;" id="rowdata"></div>
+  </div>
+
+  <div style="margin-top:20px;">
+    <center>
+    <img width="90px" src="https://i.pinimg.com/originals/71/42/62/714262829697e9749a4aa86b3c1f5538.png"/>
+    <h5 style="margin-top:20px;" >its not playstore</h5>
+    </center>
+    </div>
+  </body>
+  <script>
+
+   document.getElementById('app').value = "old";
+    document.getElementById('btns').click();
+  </script>
+</html>

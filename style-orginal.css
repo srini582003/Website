@@ -1,0 +1,322 @@
+
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700');
+    body{
+       background-color: var(--primary-color);
+    }
+   *{
+     
+     font-family: 'Poppins', sans-serif;
+   }
+   :root{
+       --inner-shadow:white;
+       --primary-color: #eaedf1;
+       --secondary-color: #0d0e0e;
+       --white-shadow: #8995a7;
+       --theme-color: #e6006b;
+       --clock-top: 230px;
+   }
+   .dark-theme{
+       --inner-shadow:#b3bdc9;
+       --primary-color: #0d0e0e;
+       --secondary-color: #eaedf1;
+       --white-shadow: #3a3f46;
+   }
+   div.top{
+       display: flex;
+       justify-content: center;
+       position:fixed ;
+       top: 0;
+       margin-top: 0px;
+       height: 40px;
+       width: 95%;
+       margin-left: 2px;
+       border-bottom-left-radius: 30px;
+       border-bottom-right-radius: 30px;
+       background-color: var(--primary-color);
+       padding-top: 12px;
+       padding-right: 2px;
+       box-shadow: inset 2px 3px 5px var(--inner-shadow),2px 3px 5px var(--white-shadow);
+       }
+   
+   div.btm{
+   position:fixed ;
+   bottom: 0;
+   height: 40px;
+   width: 95%;
+   border-top-left-radius: 30px;
+   border-top-right-radius: 30px;
+   background-color: var(--primary-color);
+   padding-top: 13px;padding-right: 2px;
+   margin-bottom: 0px;
+   box-shadow: inset 2px 3px 5px var(--white-shadow),2px 3px 5px var(--inner-shadow);             
+   }
+   .gri{
+       display: grid;
+       justify-content: center;
+       grid-gap: 6%;
+       grid: 7px / auto auto auto auto;
+   }
+   #icrd1{
+       background-color:var(--theme-color);
+       width: 90px;
+       height: 30px;
+       color: aliceblue;
+       border-radius: 30px;
+       transition: width 0.3s ,transform 0.5s;
+       cursor: pointer; 
+   }
+   #icrd2{
+       height: 30px;  
+       border-radius: 30px; 
+       transition: width 0.3s ,transform 0.5s;
+       cursor: pointer; 
+   }
+   #icrd3{
+       height: 30px;  
+       border-radius: 30px;
+       transition: width 0.3s ,transform 0.5s;
+       cursor: pointer; 
+   }
+   #icrd4{
+       height: 30px;  
+       border-radius: 30px;
+       transition: width 0.3s ,transform 0.5s;
+       cursor: pointer; 
+   }
+   #icrd1:hover {
+       width: 100px;
+       transform: rotate(360deg);
+     }
+   #icrd2:hover {
+       width: 50px;
+       transform: rotate(360deg);
+     }
+   #icrd3:hover {
+       width: 50px;
+       transform: rotate(360deg);
+     }
+   #icrd4:hover {
+       width: 50px;
+       transform: rotate(360deg);
+     }
+   
+   
+   #home{
+       text-align: center;
+       color: var(--primary-color);
+       margin-top: -22px;
+       margin-left: 18px;
+       font-size: 14px;
+   }
+   #software{
+       text-align: center;
+       color: var(--primary-color);
+       margin-top: -25px;
+       margin-left: 28px;
+       font-size: 14px;
+       display: none;
+   }
+   #app{
+       text-align: center;
+       color: var(--primary-color);
+       margin-top: -23px;
+       margin-left: 24px;
+       font-size: 14px;
+       display: none;
+   }
+   #info{
+       text-align: center;
+       color: var(--primary-color);
+       margin-top: -23px;
+       margin-left: 24px;
+       font-size: 14px;
+       display: none;
+   }
+   #ichome{
+       font-size:20px; 
+       color: var(--theme-color);
+       margin-top: 2px; 
+       margin-left: 10px;
+   }
+   #icsoft{
+       font-size:20px; 
+       color: var(--theme-color);
+       margin-top: 5px; 
+       margin-left: 12px;
+   }
+   #icapp{
+       font-size:20px; 
+       color: var(--theme-color);
+       margin-top: 3px;  
+       margin-left: 12px;
+   }
+   #icinfo{
+       font-size:20px; 
+       color: var(--theme-color);
+       margin-top: 3px; 
+       margin-left: 12px;
+   }
+   
+   @keyframes inanimate{
+     from {top: 0px;}
+     to {top: 27vh;}
+   }
+   @keyframes useranis{
+       0%   {background-color: var(--primary-color);}25%
+           {background-color: var(--theme-color);}
+   }
+   @keyframes userani{
+     from {top: 80px;}
+     to {top: 0px;}
+   }
+   .click:active {
+       box-shadow: 4 4px;
+       transform: translateX(3px);
+   }
+   .search-box{
+     width: fit-content;
+     height: fit-content;
+     position: relative;
+   }
+   .input-search{
+     box-sizing: border-box;
+     height: 30px;
+     width: 0px;
+     border-style: none; 
+     right: 0;
+     font-size: 18px;
+     letter-spacing: 2px;
+     outline: none;
+     border-radius: 25px;
+     transition: all .5s ease-in-out;
+     background-color: var(--primary-color);
+     color:var(--theme-color);
+   }
+   .input-search::placeholder{
+       color:var(--secondary-color);
+       font-size: 18px;
+       letter-spacing: 2px;
+       font-weight: 100;
+   }
+   .btn-search{
+     width: 50px;
+     height: 50px;
+     border-style: none;
+     font-size: 20px;
+     font-weight: bold;
+     outline: none;
+     cursor: pointer;
+     border-radius: 50%;
+     right: 0px;
+     color:var(--theme-color) ;
+     background-color:transparent;
+     pointer-events: painted;  
+   }
+   .btn-search:focus ~ .input-search{
+     width: 130px;
+     border-radius: 0px;
+     background-color: transparent;
+     border-bottom:1px solid rgba(255,255,255,.5);
+     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+   }
+   .input-search:focus{
+     width: 130px;
+     border-radius: 0px;
+     background-color: transparent;
+     border-bottom:1px solid rgba(255,255,255,.5);
+     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);}
+   .srinilogo{
+       width: 70px; 
+       position: fixed; 
+       margin-left: 30px; 
+       left: 0; 
+       margin-top: -20px;}
+   #ictheme{
+       font-size: 24px; 
+       margin-right: 60px;
+       position: fixed; 
+       right: 0; 
+       margin-top: 4px; 
+       color: var(--theme-color); }
+   #clr{
+       font-size: 20px; 
+       color: var(--theme-color); 
+       margin-right: 24px; 
+       position: fixed; 
+       right: 0; 
+       margin-top: 6px;
+   }
+   #homepg{
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      width: 100%; 
+      height: 1900px; 
+      background-color:var(--primary-color);
+   }
+   #softpg{
+       display: none; 
+       width: 100%; 
+       height: 700px; 
+       background-color:var(--primary-color);
+   }
+   #apppg{
+       display: none; 
+       width: 100%; 
+       height: 600px; 
+       background-color:var(--primary-color);
+   }
+   #infopg{
+       display: none; 
+       width: 100%; 
+       height: auto; 
+       background-color:var(--primary-color);
+   }
+   .mydproundani{
+       animation-name: useranis;
+       animation-duration: 3s; 
+       animation-fill-mode: both;
+       margin-top: 100px; 
+       width: 100px; 
+       height: 100px; 
+       border-radius: 50%; 
+       background-color: var(--primary-color); 
+       box-shadow: inset 2px 3px 5px var(--white-shadow),2px 3px 5px var(--inner-shadow);
+   }
+   #myinfopic{
+       width: 137px; 
+       margin-left: -17px;
+       margin-top: -8px; 
+       animation-name: userani;
+       animation-duration: 2s; 
+       animation-fill-mode: both;
+   }
+   .SocialurlName{
+       margin-left: 18px; 
+       margin-top: 17px; 
+       font-size: 19px;
+       color:var(--secondary-color);
+   }
+   #myname{
+    margin-top: 4px; 
+    color: var(--theme-color);
+   }
+   .sociallinkbox{
+     border-radius: 20px;
+     margin-top: 10px; 
+     width:250px; 
+     height:280px; 
+     background-color: var(--primary-color);
+     box-shadow: inset 2px 3px 5px var(--inner-shadow),2px 3px 5px var(--white-shadow);
+   }
+   ::-webkit-scrollbar {
+       width: 1px;
+   }
+   ::-webkit-scrollbar-track {
+       -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+       border-radius: 1px;
+   }
+   ::-webkit-scrollbar-thumb {
+       border-radius: 1px;
+       -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+   }

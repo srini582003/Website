@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+</head>
+<style>
+    body{
+        background-color: #eaedf1;
+       
+    }
+    :root{
+    --inner-shadow:white;
+    --primary-color: #eaedf1;
+    --secondary-color: #0d0e0e;
+    --white-shadow: #8995a7;
+    --theme-color: #e6006b;
+    --clock-top: 230px;
+}
+.dark-theme{
+    --inner-shadow:#b3bdc9;
+    --primary-color: #0d0e0e;
+    --secondary-color: #eaedf1;
+    --white-shadow: #3a3f46;
+}
+.click:after {
+    padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.click:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+</style>
+<body>
+    <div  style="background-color:var(--primary-color);">
+        <center>
+            <div id="appbox" style=" border-radius: 20px;margin-top: 120px; width:300px; height:430px; background-color: var(--primary-color);box-shadow: inset 2px 3px 5px var(--inner-shadow),2px 3px 5px var(--white-shadow);">
+                <br>
+                <div class="click" onclick="modapk()" style="border-radius: 20px;margin-top: 10px; width:230px; height:170px; background-color: var(--primary-color);box-shadow: inset 2px 3px 5px var(--white-shadow),2px 3px 5px var(--inner-shadow);">
+                    
+                    <img style="width: 300px; margin-top:9px; margin-left:-50px;" src="https://1.bp.blogspot.com/-d-kGacsogyk/YUFaHDgSqHI/AAAAAAAAAMU/uqJSNvP4-xop2KydS3H5jRntztcM_VdwwCLcBGAsYHQ/s320/Pro%2BMod%2BApk.png" />
+                    
+            
+            
+                </div>
+                <div class="click" onclick="oldapk()" style="border-radius: 20px;margin-top: 30px; width:230px; height:170px; background-color: var(--primary-color);box-shadow: inset 2px 3px 5px var(--white-shadow),2px 3px 5px var(--inner-shadow);">
+            
+              
+                    <img style="width: 260px; margin-top:17px; margin-left:-20px;" src="https://1.bp.blogspot.com/-xYLJC9JutYE/YUFTgrsqrDI/AAAAAAAAAMM/7GpLTIYiRHAMz1BOPFwV3g4Sf895FM23ACLcBGAsYHQ/s320/Old%2BApk%2BImg.png" />
+                    
+                    
+                </div>
+            
+                
+            
+            </div>
+        </center>
+        
+
+    </div>
+    
+    
+</body>
+<script>
+    function modapk(){
+
+        document.getElementById('appbox').style.display = "none";
+
+        window.location="https://script.google.com/macros/s/AKfycbyudL7J8UFSd8j3h9f4WpBLjwPCsCEoq5Ee3EevKWLTAUHqtnSe5IQag5cFs8c7nqlRRg/exec";
+    
+    }
+    function oldapk(){
+
+     window.location="https://script.google.com/macros/s/AKfycbwCpSbYQEj1KMnRGwKdpwVZpbaaYKEjlpDNXfEdjMO_EplrjdwgXqtFVlJgkN3Nx72ytQ/exec";
+
+    }
+</script>
+</html>
