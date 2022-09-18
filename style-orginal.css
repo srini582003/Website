@@ -28,13 +28,13 @@
        top: 0;
        margin-top: 0px;
        height: 40px;
-       width: 95%;
-       margin-left: 2px;
+       width: 99%;
+       margin-left: -1px;
        border-bottom-left-radius: 30px;
        border-bottom-right-radius: 30px;
        background-color: var(--primary-color);
        padding-top: 12px;
-       padding-right: 2px;
+       padding-right: 5px;
        box-shadow: inset 2px 3px 5px var(--inner-shadow),2px 3px 5px var(--white-shadow);
        }
    
@@ -42,11 +42,13 @@
    position:fixed ;
    bottom: 0;
    height: 40px;
-   width: 95%;
+   width: 99%;
    border-top-left-radius: 30px;
    border-top-right-radius: 30px;
    background-color: var(--primary-color);
-   padding-top: 13px;padding-right: 2px;
+   margin-left: -1px;
+   padding-top: 13px;
+   padding-right: 5px;
    margin-bottom: 0px;
    box-shadow: inset 2px 3px 5px var(--white-shadow),2px 3px 5px var(--inner-shadow);             
    }
